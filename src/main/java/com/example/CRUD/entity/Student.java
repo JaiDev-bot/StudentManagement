@@ -23,6 +23,10 @@ public class Student {
     @Column(name = "active")
     private boolean active;
 
+    Student() {
+
+    }
+
     public Student(int studentId, String studentName, String address, String mobile, boolean active) {
         this.studentId = studentId;
         this.studentName = studentName;

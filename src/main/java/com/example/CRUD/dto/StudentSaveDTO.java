@@ -18,15 +18,31 @@ public class StudentSaveDTO {
         return studentName;
     }
 
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
     public String getAddress() {
         return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getMobile() {
         return mobile;
     }
 
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
     public boolean isActive() {
         return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

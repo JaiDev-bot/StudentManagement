@@ -17,9 +17,8 @@ public class StudentController {
     @Autowired
     private StudentyService studentService;
 
+    @RequestMapping(path = "/save")
     public  String saveEstudent(@RequestBody StudentSaveDTO studentSaveDTO){
-
-
 
         String name = studentService.addStudent(studentSaveDTO);
         return name;

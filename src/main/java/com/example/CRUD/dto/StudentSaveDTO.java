@@ -3,16 +3,17 @@ package com.example.CRUD.dto;
 public class StudentSaveDTO {
 
     private String studentName;
-    private String address;
+    private String addres;
     private String mobile;
     private boolean active;
 
-    public StudentSaveDTO(String studentName, String address, String mobile, boolean active) {
+    public StudentSaveDTO(String studentName, String addres, String mobile, boolean active) {
         this.studentName = studentName;
-        this.address = address;
+        this.addres = addres;
         this.mobile = mobile;
         this.active = active;
     }
+
 
     public String getStudentName() {
         return studentName;
@@ -22,12 +23,12 @@ public class StudentSaveDTO {
         this.studentName = studentName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddres() {
+        return addres;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddres(String addres) {
+        this.addres = addres;
     }
 
     public String getMobile() {

@@ -21,7 +21,7 @@ public class StudentServiceIMPL implements StudentyService {
         Student student = new Student(
 
                 studentSaveDTO.getStudentName(),
-                studentSaveDTO.getAddress(),
+                studentSaveDTO.getAddres(),
                 studentSaveDTO.getMobile(),
                 studentSaveDTO.isActive()
 

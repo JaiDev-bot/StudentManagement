@@ -27,18 +27,18 @@ public class Student {
 
     }
 
-    public Student(int studentId, String studentName, String address, String mobile, boolean active) {
+    public Student(int studentId, String studentName, String addres, String mobile, boolean active) {
         this.studentId = studentId;
         this.studentName = studentName;
-        this.addres = address;
+        this.addres = addres;
         this.mobile = mobile;
         this.active = active;
     }
 
-    public Student( String studentName, String address, String mobile, boolean active) {
+    public Student( String studentName, String addres, String mobile, boolean active) {
 
         this.studentName = studentName;
-        this.addres = address;
+        this.addres = addres;
         this.mobile = mobile;
         this.active = active;
     }

@@ -1,11 +1,15 @@
 package com.example.CRUD.service.IMPL;
 
+import com.example.CRUD.dto.StudentDTO;
 import com.example.CRUD.dto.StudentSaveDTO;
 import com.example.CRUD.entity.Student;
 import com.example.CRUD.repository.StudentRepository;
 import com.example.CRUD.service.StudentyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class StudentServiceIMPL implements StudentyService {
@@ -31,5 +35,29 @@ public class StudentServiceIMPL implements StudentyService {
 
 
         return student.getStudentName();
+    }
+
+    @Override
+    public List<StudentDTO> getAllStudent() {
+
+
+        List<Student> getStudent = studentRepository.findAll();
+        List<StudentDTO> studentDTOList = new ArrayList<>();
+
+        for (Student student : getStudent) {
+        StudentDTO studentDTO = new StudentDTO(
+
+                student.getStudentId(),
+                student.getStudentName(),
+                student.getAddres(),
+                student.getMobile(),
+                student.isActive()
+
+        );
+
+        studentDTOList.add(studentDTO);
+        }
+
+        return studentDTOList;
     }
 }

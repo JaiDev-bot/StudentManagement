@@ -16,13 +16,12 @@ public class StudentDTO {
 
     }
 
-
-    public StudentDTO(Student entity) {
-        studentId = entity.getStudentId();
-        studentName = entity.getStudentName();
-        address = entity.getAddres();
-        mobile = entity.getMobile();
-       active = entity.isActive();
+    public StudentDTO(int studentId, String studentName, String address, String mobile, boolean active) {
+        this.studentId = studentId;
+        this.studentName = studentName;
+        this.address = address;
+        this.mobile = mobile;
+        this.active = active;
     }
 
     public int getStudentId() {

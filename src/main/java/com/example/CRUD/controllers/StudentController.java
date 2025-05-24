@@ -1,12 +1,12 @@
 package com.example.CRUD.controllers;
 
+import com.example.CRUD.dto.StudentDTO;
 import com.example.CRUD.dto.StudentSaveDTO;
 import com.example.CRUD.service.StudentyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -23,5 +23,6 @@ public class StudentController {
         String name = studentService.addStudent(studentSaveDTO);
         return name;
     }
+
 
 }

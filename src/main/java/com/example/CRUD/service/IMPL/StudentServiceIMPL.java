@@ -2,6 +2,7 @@ package com.example.CRUD.service.IMPL;
 
 import com.example.CRUD.dto.StudentDTO;
 import com.example.CRUD.dto.StudentSaveDTO;
+import com.example.CRUD.dto.StudentUpdateDTO;
 import com.example.CRUD.entity.Student;
 import com.example.CRUD.repository.StudentRepository;
 import com.example.CRUD.service.StudentyService;
@@ -18,6 +19,8 @@ public class StudentServiceIMPL implements StudentyService {
 
     @Autowired
     private StudentRepository studentRepository;
+
+
 
     @Override
     public String addStudent(StudentSaveDTO studentSaveDTO) {
@@ -60,4 +63,33 @@ public class StudentServiceIMPL implements StudentyService {
 
         return studentDTOList;
     }
+
+
+    @Override
+    public String updateStudent(StudentUpdateDTO studentUpdateDTO) {
+
+        if(studentRepository.existsById(studentUpdateDTO.getStudentId())){
+
+            Student student = studentRepository.getById(studentUpdateDTO.getStudentId());
+
+            student.setStudentName(studentUpdateDTO.getStudentName());
+            student.setAddres(studentUpdateDTO.getAddress());
+            student.setMobile(studentUpdateDTO.getMobile());
+            student.setActive(studentUpdateDTO.isActive());
+
+            studentRepository.save(student);
+
+
+        }
+
+        else {
+            System.out.println("Id do estudante não existe");
+        }
+
+        return null;
+    }
+
+
+
+
 }

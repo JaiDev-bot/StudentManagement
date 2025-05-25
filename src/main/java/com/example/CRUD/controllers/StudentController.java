@@ -22,7 +22,7 @@ public class StudentController {
     public  String saveEstudent(@RequestBody StudentSaveDTO studentSaveDTO){
 
         String name = studentService.addStudent(studentSaveDTO);
-        return name;
+        return "added";
 }
     @GetMapping(path = "/getallStudent")
     public List<StudentDTO> getAllStudent() {
@@ -36,10 +36,16 @@ public class StudentController {
     public String updateStudent(@RequestBody StudentUpdateDTO studentUpdateDTO){
 
         String id = studentService.updateStudent(studentUpdateDTO);
-        return id;
+        return "updated";
 
     }
 
+    @DeleteMapping("/delete/{id}")
+    public String deleteStudent(@PathVariable(value ="id") int id){
+
+    boolean deleteStudent = studentService.deleteStudent(id);
+    return "Student Deleted";
+    }
 
 
 }

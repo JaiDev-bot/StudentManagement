@@ -64,6 +64,18 @@ public class StudentServiceIMPL implements StudentyService {
         return studentDTOList;
     }
 
+    @Override
+    public boolean deleteStudent(int id) {
+        if (studentRepository.existsById(id)){
+            studentRepository.deleteById(id);
+        }else{
+
+            System.out.println("Student ID is not found");
+        }
+
+        return false;
+    }
+
 
     @Override
     public String updateStudent(StudentUpdateDTO studentUpdateDTO) {
@@ -83,7 +95,7 @@ public class StudentServiceIMPL implements StudentyService {
         }
 
         else {
-            System.out.println("Id do estudante não existe");
+            System.out.println(" ID does not exist");
         }
 
         return null;

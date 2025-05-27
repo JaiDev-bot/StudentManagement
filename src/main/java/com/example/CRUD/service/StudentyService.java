@@ -16,4 +16,6 @@ public interface StudentyService {
      List<StudentDTO> getAllStudent();
 
     boolean deleteStudent(int id);
+
+    StudentDTO getStudentById(int id);
 }

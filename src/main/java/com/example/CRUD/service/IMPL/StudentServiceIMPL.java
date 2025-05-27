@@ -6,11 +6,14 @@ import com.example.CRUD.dto.StudentUpdateDTO;
 import com.example.CRUD.entity.Student;
 import com.example.CRUD.repository.StudentRepository;
 import com.example.CRUD.service.StudentyService;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentServiceIMPL implements StudentyService {
@@ -19,6 +22,9 @@ public class StudentServiceIMPL implements StudentyService {
 
     @Autowired
     private StudentRepository studentRepository;
+
+
+
 
 
 
@@ -60,7 +66,7 @@ public class StudentServiceIMPL implements StudentyService {
 
         studentDTOList.add(studentDTO);
         }
-
+//
         return studentDTOList;
     }
 
@@ -101,6 +107,29 @@ public class StudentServiceIMPL implements StudentyService {
         }
 
         return false;
+    }
+
+    @Override
+    public StudentDTO getStudentById(int id){
+        Optional<Student>student = studentRepository.findById(id);
+        if (student.isPresent()){
+            StudentDTO studentDTO = new StudentDTO(
+
+
+                    student.get().getStudentId(),
+                    student.get().getStudentName(),
+                    student.get().getAddres(),
+                    student.get().getMobile(),
+                    student.get().isActive()
+            );
+
+            return studentDTO;
+
+        }
+        else {
+            System.out.println("Student ID is not found");
+        }
+        return null;
     }
 
 

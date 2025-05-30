@@ -47,5 +47,14 @@ public class StudentController {
     return "Student Deleted";
     }
 
+    @GetMapping(
+            path = "/get-by-id",
+            params = "id"
+    )
+    public StudentDTO getStudentById(@RequestParam(value = "id")int id){
+        StudentDTO studentDTO = studentService.getStudentById(id);
+        return studentDTO;
+    }
+
 
 }

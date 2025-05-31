@@ -132,6 +132,10 @@ public class StudentServiceIMPL implements StudentyService {
         return null;
     }
 
+    @Override
+    public List<StudentDTO> findStudentName(String name) {
+        return List.of();
+    }
 
 
 }

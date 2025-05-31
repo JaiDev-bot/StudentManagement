@@ -18,4 +18,6 @@ public interface StudentyService {
     boolean deleteStudent(int id);
 
     StudentDTO getStudentById(int id);
+
+    List<StudentDTO> findStudentName(String name);
 }

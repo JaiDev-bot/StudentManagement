@@ -23,6 +23,9 @@ public class StudentServiceIMPL implements StudentyService {
     @Autowired
     private StudentRepository studentRepository;
 
+    @Autowired
+    private ModelMapper modelMapper;
+
 
 
 
@@ -53,21 +56,11 @@ public class StudentServiceIMPL implements StudentyService {
         List<Student> getStudent = studentRepository.findAll();
         List<StudentDTO> studentDTOList = new ArrayList<>();
 
-        for (Student student : getStudent) {
-        StudentDTO studentDTO = new StudentDTO(
 
-                student.getStudentId(),
-                student.getStudentName(),
-                student.getAddres(),
-                student.getMobile(),
-                student.isActive()
+        List<StudentDTO> studentDTOS = modelMapper.map(getStudent,
+               new TypeToken<List<StudentDTO>>(){}.getType());
 
-        );
-
-        studentDTOList.add(studentDTO);
-        }
-//
-        return studentDTOList;
+       return  studentDTOS;
     }
 
 
@@ -113,17 +106,10 @@ public class StudentServiceIMPL implements StudentyService {
     public StudentDTO getStudentById(int id){
         Optional<Student>student = studentRepository.findById(id);
         if (student.isPresent()){
-            StudentDTO studentDTO = new StudentDTO(
 
+            StudentDTO studentDTO = modelMapper.map(student.get(),
+                    StudentDTO.class);
 
-                    student.get().getStudentId(),
-                    student.get().getStudentName(),
-                    student.get().getAddres(),
-                    student.get().getMobile(),
-                    student.get().isActive()
-            );
-
-            return studentDTO;
 
         }
         else {

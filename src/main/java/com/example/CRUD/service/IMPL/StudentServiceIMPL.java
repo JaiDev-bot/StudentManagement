@@ -120,8 +120,18 @@ public class StudentServiceIMPL implements StudentyService {
 
     @Override
     public List<StudentDTO> findStudentName(String name) {
-        return List.of();
+        List<Student>students = studentRepository.findAllbyStudentnameEquals(name);
+        if(students.size()!=0){
+
+            List<StudentDTO> studentDTOS = modelMapper.map(students,
+                    new TypeToken<List<StudentDTO>>(){}.getType());
+            return studentDTOS;
+        }
+
+
+        return null;
     }
+
 
 
 }

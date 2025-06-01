@@ -5,6 +5,7 @@ import com.example.CRUD.dto.StudentSaveDTO;
 import com.example.CRUD.dto.StudentUpdateDTO;
 import com.example.CRUD.service.StudentyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -55,6 +56,20 @@ public class StudentController {
         StudentDTO studentDTO = studentService.getStudentById(id);
         return studentDTO;
     }
+
+
+
+    @GetMapping(
+            path = "/get-by-name",
+            params = "name"
+    )
+    public List<StudentDTO> getStudentByName(@RequestParam(value = "name")String name){
+
+        List<StudentDTO> studentName = studentService.findStudentName(name);
+        return studentName;
+    }
+
+
 
 
 

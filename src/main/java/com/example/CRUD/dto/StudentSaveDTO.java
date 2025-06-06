@@ -23,11 +23,11 @@ public class StudentSaveDTO {
         this.studentName = studentName;
     }
 
-    public String getAddres() {
-        return addres;
+    public String getAddress() {
+        return getAddress();
     }
 
-    public void setAddres(String addres) {
+    public void setAddress(String address) {
         this.addres = addres;
     }
 

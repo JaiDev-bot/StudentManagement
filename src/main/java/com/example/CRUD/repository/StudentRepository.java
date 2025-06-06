@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface StudentRepository extends JpaRepository<Student, Integer> {
 
-List<Student> findAllbyStudentnameEquals(String name);
+    List<Student> findAllByStudentNameEquals(String name);
 
 
 }

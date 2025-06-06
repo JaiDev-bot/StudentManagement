@@ -37,7 +37,7 @@ public class StudentServiceIMPL implements StudentyService {
         Student student = new Student(
 
                 studentSaveDTO.getStudentName(),
-                studentSaveDTO.getAddres(),
+                studentSaveDTO.getAddress(),
                 studentSaveDTO.getMobile(),
                 studentSaveDTO.isActive()
 
@@ -74,7 +74,7 @@ public class StudentServiceIMPL implements StudentyService {
             Student student = studentRepository.getById(studentUpdateDTO.getStudentId());
 
             student.setStudentName(studentUpdateDTO.getStudentName());
-            student.setAddres(studentUpdateDTO.getAddress());
+            student.setAddress(studentUpdateDTO.getAddress());
             student.setMobile(studentUpdateDTO.getMobile());
             student.setActive(studentUpdateDTO.isActive());
 
@@ -110,6 +110,7 @@ public class StudentServiceIMPL implements StudentyService {
             StudentDTO studentDTO = modelMapper.map(student.get(),
                     StudentDTO.class);
 
+            return studentDTO;
 
         }
         else {
@@ -120,7 +121,7 @@ public class StudentServiceIMPL implements StudentyService {
 
     @Override
     public List<StudentDTO> findStudentName(String name) {
-        List<Student>students = studentRepository.findAllbyStudentnameEquals(name);
+        List<Student>students = studentRepository.findAllByStudentNameEquals(name);
         if(students.size()!=0){
 
             List<StudentDTO> studentDTOS = modelMapper.map(students,

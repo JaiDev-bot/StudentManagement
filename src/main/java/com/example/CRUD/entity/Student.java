@@ -14,7 +14,7 @@ public class Student {
     private String studentName;
 
     @Column(name="addres", length = 100)
-    private String addres;
+    private String address;
 
     @Column(name="mobile", length = 12)
     private String mobile;
@@ -30,15 +30,15 @@ public class Student {
     public Student(int studentId, String studentName, String addres, String mobile, boolean active) {
         this.studentId = studentId;
         this.studentName = studentName;
-        this.addres = addres;
+        this.address = address;
         this.mobile = mobile;
         this.active = active;
     }
 
-    public Student( String studentName, String addres, String mobile, boolean active) {
+    public Student( String studentName, String address, String mobile, boolean active) {
 
         this.studentName = studentName;
-        this.addres = addres;
+        this.address = address;
         this.mobile = mobile;
         this.active = active;
     }
@@ -60,11 +60,11 @@ public class Student {
     }
 
     public String getAddres() {
-        return addres;
+        return address;
     }
 
-    public void setAddres(String addres) {
-        this.addres = addres;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getMobile() {

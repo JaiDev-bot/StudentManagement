@@ -50,3 +50,9 @@ src/
 │           │   └── StudentService.java
 │           └── CrudApplication.java
 ```
+
+## 🔹 Endpoints da API
+
+![foto anime  (1)](https://github.com/JaiDev-bot/CRUD/blob/master/img.student.png)
+
+

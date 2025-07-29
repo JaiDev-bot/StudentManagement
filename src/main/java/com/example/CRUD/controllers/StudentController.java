@@ -7,6 +7,7 @@ import com.example.CRUD.service.StudentyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +29,7 @@ public class StudentController {
 
         try {
             studentService.addStudent(studentSaveDTO);
-            return ResponseEntity.created(null).body("Estudante adicionado com sucesso!");
+            return ResponseEntity.status(HttpStatus.CREATED).body(" O estudante foi criado com sucesso");
         }
         catch (Exception e) {
             logger.error(" Não foi possivel adicionar estudante.", e);
@@ -38,10 +39,16 @@ public class StudentController {
 
 
     @GetMapping(path = "/getallStudent")
-    public List<StudentDTO> getAllStudent() {
+    public ResponseEntity<List<?>> getStudent (@RequestParam  StudentSaveDTO studentSaveDTO){
 
-        List<StudentDTO> allStudent = studentService.getAllStudent();
-        return allStudent;
+        try {
+           List<StudentDTO> student = studentService.getAllStudent();
+           return  ResponseEntity.status(HttpStatus.OK).body(student);
+        }
+        catch (Exception e){
+        logger.error(" Não foi possivel encontrar estudante.", e);
+        return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
 
     }
 

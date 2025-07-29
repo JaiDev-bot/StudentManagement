@@ -1,6 +1,9 @@
 package com.example.CRUD.dto;
 
 import com.example.CRUD.entity.Student;
+import lombok.*;
+
+
 
 public class StudentDTO {
 
@@ -10,11 +13,6 @@ public class StudentDTO {
     private String mobile;
     private boolean active;
 
-
-
-    public StudentDTO() {
-
-    }
 
     public StudentDTO(int studentId, String studentName, String address, String mobile, boolean active) {
         this.studentId = studentId;
@@ -28,30 +26,41 @@ public class StudentDTO {
         return studentId;
     }
 
-
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
 
     public String getStudentName() {
         return studentName;
     }
 
-
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
 
     public String getAddress() {
         return address;
     }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public String getMobile() {
         return mobile;
     }
 
-
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
 
     public boolean isActive() {
         return active;
     }
 
-
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 }
 
 

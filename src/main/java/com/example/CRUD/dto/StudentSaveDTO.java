@@ -1,19 +1,23 @@
 package com.example.CRUD.dto;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 public class StudentSaveDTO {
 
     private String studentName;
-    private String addres;
+    private String address;
     private String mobile;
     private boolean active;
 
-    public StudentSaveDTO(String studentName, String addres, String mobile, boolean active) {
-        this.studentName = studentName;
-        this.addres = addres;
-        this.mobile = mobile;
-        this.active = active;
-    }
 
+
+    public StudentSaveDTO(){
+
+    }
 
     public String getStudentName() {
         return studentName;
@@ -23,12 +27,12 @@ public class StudentSaveDTO {
         this.studentName = studentName;
     }
 
-    public String getAddres() {
-        return addres;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddres(String addres) {
-        this.addres = addres;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getMobile() {
@@ -45,5 +49,14 @@ public class StudentSaveDTO {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public StudentSaveDTO(String studentName, String address, String mobile, boolean active) {
+        this.studentName = studentName;
+        this.address = address;
+        this.mobile = mobile;
+        this.active = active;
+
+
     }
 }

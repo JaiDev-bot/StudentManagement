@@ -1,6 +1,9 @@
 package com.example.CRUD.entity;
 import jakarta.persistence.*;
 
+
+
+
 @Entity
 @Table(name = "student")
 public class Student {
@@ -23,9 +26,7 @@ public class Student {
     @Column(name = "active")
     private boolean active;
 
-    Student() {
 
-    }
 
     public Student(int studentId, String studentName, String addres, String mobile, boolean active) {
         this.studentId = studentId;

@@ -5,7 +5,7 @@ import com.example.CRUD.dto.StudentSaveDTO;
 import com.example.CRUD.dto.StudentUpdateDTO;
 import com.example.CRUD.entity.Student;
 import com.example.CRUD.repository.StudentRepository;
-import com.example.CRUD.service.StudentyService;
+import com.example.CRUD.service.StudentService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StudentServiceIMPL implements StudentyService {
+public class StudentServiceIMPL implements StudentService {
 
 
 
@@ -37,9 +37,10 @@ public class StudentServiceIMPL implements StudentyService {
         Student student = new Student(
 
                 studentSaveDTO.getStudentName(),
-                studentSaveDTO.getAddres(),
+                studentSaveDTO.getAddress(),
                 studentSaveDTO.getMobile(),
                 studentSaveDTO.isActive()
+
 
         );
 

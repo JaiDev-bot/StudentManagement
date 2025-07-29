@@ -6,7 +6,7 @@ import com.example.CRUD.dto.StudentUpdateDTO;
 
 import java.util.List;
 
-public interface StudentyService {
+public interface StudentService {
 
 
      String updateStudent(StudentUpdateDTO studentUpdateDTO);

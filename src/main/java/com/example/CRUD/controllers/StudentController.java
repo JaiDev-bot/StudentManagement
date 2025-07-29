@@ -4,8 +4,10 @@ import com.example.CRUD.dto.StudentDTO;
 import com.example.CRUD.dto.StudentSaveDTO;
 import com.example.CRUD.dto.StudentUpdateDTO;
 import com.example.CRUD.service.StudentyService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,16 +17,26 @@ import java.util.List;
 @RequestMapping("/student")
 public class StudentController {
 
+    private static Logger logger = LoggerFactory.getLogger(StudentController.class.getName());
+
 
     @Autowired
     private StudentyService studentService;
 
-    @PostMapping(path = "/save")
-    public  String saveEstudent(@RequestBody StudentSaveDTO studentSaveDTO){
+    @PostMapping
+    public ResponseEntity<?> addStudent (@RequestBody StudentSaveDTO studentSaveDTO) {
 
-        String name = studentService.addStudent(studentSaveDTO);
-        return "added";
-}
+        try {
+            studentService.addStudent(studentSaveDTO);
+            return ResponseEntity.created(null).body("Estudante adicionado com sucesso!");
+        }
+        catch (Exception e) {
+            logger.error(" Não foi possivel adicionar estudante.", e);
+            return ResponseEntity.internalServerError().body("Não foi possivel adicionar estudante");
+        }
+    }
+
+
     @GetMapping(path = "/getallStudent")
     public List<StudentDTO> getAllStudent() {
 

@@ -1,11 +1,5 @@
 package com.example.CRUD.dto;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 public class StudentSaveDTO {
 
     private String studentName;
@@ -28,7 +22,7 @@ public class StudentSaveDTO {
     }
 
     public String getAddress() {
-        return address;
+        return getAddress();
     }
 
     public void setAddress(String address) {

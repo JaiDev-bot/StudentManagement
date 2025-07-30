@@ -75,7 +75,7 @@ public class StudentServiceIMPL implements StudentService {
             Student student = studentRepository.getById(studentUpdateDTO.getStudentId());
 
             student.setStudentName(studentUpdateDTO.getStudentName());
-            student.setAddres(studentUpdateDTO.getAddress());
+            student.setAddress(studentUpdateDTO.getAddress());
             student.setMobile(studentUpdateDTO.getMobile());
             student.setActive(studentUpdateDTO.isActive());
 
@@ -111,11 +111,26 @@ public class StudentServiceIMPL implements StudentService {
             StudentDTO studentDTO = modelMapper.map(student.get(),
                     StudentDTO.class);
 
+            return studentDTO;
 
         }
         else {
             System.out.println("Student ID is not found");
         }
+        return null;
+    }
+
+    @Override
+    public List<StudentDTO> findStudentName(String name) {
+        List<Student>students = studentRepository.findAllByStudentNameEquals(name);
+        if(students.size()!=0){
+
+            List<StudentDTO> studentDTOS = modelMapper.map(students,
+                    new TypeToken<List<StudentDTO>>(){}.getType());
+            return studentDTOS;
+        }
+
+
         return null;
     }
 
